@@ -10,7 +10,9 @@
   "license": "ISC",
   
   // adding workspaces
-  "name": "my-workspaces-powered-project",
-  "workspaces": ["packages/a"]
+"workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
 
 }
