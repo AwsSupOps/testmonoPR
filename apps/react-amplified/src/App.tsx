@@ -35,6 +35,7 @@
 // export default App
 
 
+
 import type { AppProps } from 'next/app';
 import { Authenticator } from '@aws-amplify/ui-react';
 import { Amplify } from 'aws-amplify';
