@@ -1,0 +1,11 @@
+{
+  "name": "react-next-monorepo",
+  "version": "1.0.0",
+  "description": "monorepo apps with a share backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "none"
+  },
+  "author": "",
+  "license": "ISC"
+}
