@@ -7,5 +7,10 @@
     "test": "none"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  
+  // adding workspaces
+  "name": "my-workspaces-powered-project",
+  "workspaces": ["packages/a"]
+
 }
