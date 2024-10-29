@@ -30,7 +30,7 @@ applications:
             - npx ampx generate outputs --branch master --app-id d29whgyk0fokb7
             - npm run build --workspace=apps/react-amplified
       artifacts:
-        baseDirectory: apps/react-amplified/.next
+        baseDirectory: dist #apps/react-amplified/.next
         files:
           - '**/*'
       cache:
