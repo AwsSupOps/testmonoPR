@@ -28,7 +28,7 @@ applications:
         build:
           commands:
             - npx ampx generate outputs --branch master --app-id d29whgyk0fokb7
-            - npm run build --workspace=apps/react-amplified
+            - npm run build # --workspace=apps/react-amplified
       artifacts:
         baseDirectory: dist #apps/react-amplified/.next
         files:
