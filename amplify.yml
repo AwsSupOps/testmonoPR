@@ -34,6 +34,7 @@ applications:
         build:
           commands:
             # move backend app id to an env var
+            # IMPORTANT! this will fail without manually extending the service role to allow reading cfn stack summary (see below)
             - npx ampx generate outputs --branch master --app-id $MY_AMPLIFY_BACKEND_APP_ID
             - npm run build
       artifacts:
@@ -45,3 +46,14 @@ applications:
           - .next/cache/**/*
           - .npm/**/*
       buildPath: /
+# {
+# 	"Version": "2012-10-17",
+# 	"Statement": [
+# 		{
+# 			"Sid": "AllowReadBackendStack",
+# 			"Effect": "Allow",
+# 			"Action": ["cloudformation:GetTemplateSummary"],
+# 			"Resource": ["arn:aws:cloudformation:us-east-1:xxxxxx:stack/amplify-d1lwl5hdqxqezz-master-branch-9789049d84/e4380d60-97dd-11ef-bbd3-123845a4c18f"]
+# 		}
+# 	]
+# }
