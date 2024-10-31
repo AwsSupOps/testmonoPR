@@ -1,11 +1,16 @@
 version: 1
 applications:
-  - backend:
+  - appRoot: packages/share-backend
+    backend:
       phases:
         build:
           commands:
             - npm ci --cache .npm --prefer-offline
             - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+        postBuild:
+          commands:
+            # enable incoming webhook on frontend app, add url to env vars for backend app
+            - curl -X POST -d {} "$MY_FRONTEND_BUILD_WEBHOOK_URL" -H "Content-Type:application/json"
     frontend:
       phases:
         build:
@@ -18,19 +23,21 @@ applications:
       cache:
         paths:
           - .npm/**/*
-    appRoot: packages/share-backend
-    
-  - frontend:
+  # disable auto-builds on this one, we'll trigger with the webhook
+  # app -> app settings -> branch settings -> locate your branch and disable auto-build from the list
+  - appRoot: apps/react-amplified
+    frontend:
       phases:
         preBuild:
           commands:
             - npm ci --cache .npm --prefer-offline
         build:
           commands:
-            - npx ampx generate outputs --branch master --app-id d29whgyk0fokb7
-            - npm run build 
+            # move backend app id to an env var
+            - npx ampx generate outputs --branch master --app-id $MY_AMPLIFY_BACKEND_APP_ID
+            - npm run build
       artifacts:
-        baseDirectory: dist 
+        baseDirectory: dist
         files:
           - '**/*'
       cache:
@@ -38,5 +45,3 @@ applications:
           - .next/cache/**/*
           - .npm/**/*
       buildPath: /
-    appRoot: apps/react-amplified
-    
