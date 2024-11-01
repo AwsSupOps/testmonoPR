@@ -26,7 +26,7 @@
   {
   "compilerOptions": {
     "paths": {
-      "@/data-schema": ["./packages/my-shared-backend/amplify/data/resource"]
+      "@/data-schema": ["../../packages/my-shared-backend/amplify/data/resource"]
     }
   }
 }
