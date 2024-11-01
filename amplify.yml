@@ -43,7 +43,6 @@ applications:
           - '**/*'
       cache:
         paths:
-          - .next/cache/**/*
           - .npm/**/*
       buildPath: /
 # {
@@ -52,8 +51,19 @@ applications:
 # 		{
 # 			"Sid": "AllowReadBackendStack",
 # 			"Effect": "Allow",
-# 			"Action": ["cloudformation:GetTemplateSummary"],
+# 			"Action": [
+#         "cloudformation:GetTemplateSummary",
+#         "cloudformation:DescribeStacks"
+#       ],
 # 			"Resource": ["arn:aws:cloudformation:us-east-1:xxxxxx:stack/amplify-d1lwl5hdqxqezz-master-branch-9789049d84/e4380d60-97dd-11ef-bbd3-123845a4c18f"]
-# 		}
+# 		},
+#     {
+#       "Sid": "AllowReadBackendBucket",
+#       "Effect": "Allow",
+#       "Action": ["s3:GetObject"],
+#       "Resource": [
+#        "arn:aws:s3:::amplify-d1lwl5hdqxqezz-ma-amplifydataamplifycodege-xxxxx/model-schema.graphql"
+#       ]
+#     }
 # 	]
 # }
