@@ -25,7 +25,7 @@ applications:
           - .npm/**/*
   # disable auto-builds on this one, we'll trigger with the webhook
   # app -> app settings -> branch settings -> locate your branch and disable auto-build from the list
-  - appRoot: apps/react-amplified
+  - appRoot: apps/amplify-vite-react-template
     frontend:
       phases:
         preBuild:
