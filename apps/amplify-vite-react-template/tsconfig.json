@@ -5,6 +5,9 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "paths": {
+      "@/data-schema": ["../../packages/my-shared-backend/amplify/data/resource"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -23,11 +26,4 @@
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
   
-  {
-  "compilerOptions": {
-    "paths": {
-      "@/data-schema": ["../../packages/my-shared-backend/amplify/data/resource"]
-    }
-  }
-}
 }
