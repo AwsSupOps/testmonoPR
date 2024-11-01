@@ -7,7 +7,7 @@
     "skipLibCheck": true,
     "paths": {
       "@/data-schema": ["./packages/share-backend/amplify/data/resource"],
-      "@/amplify_outputs.json":[ "../../packages/share-backend/amplify_outputs.json"]
+      /* "@/amplify_outputs.json":[ "../../packages/share-backend/amplify_outputs.json"] */
     },
 
     /* Bundler mode */
